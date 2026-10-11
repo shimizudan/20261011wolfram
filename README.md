@@ -130,6 +130,10 @@ WFUNC["BesselJ"] = :besselj
 
 すべてのノートブックを，この環境で最初から最後まで実行して確認しています。
 
+## ライセンス
+
+[MIT ライセンス](LICENSE)です。授業や教材づくりに自由に使ってください。
+
 ---
 
 Wolfram，Mathematica，Wolfram Engine は Wolfram Research, Inc. の商標です。このリポジトリは Wolfram Research とは関係のない個人の教材です。
