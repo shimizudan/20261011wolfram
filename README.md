@@ -35,6 +35,25 @@ Julia と Wolfram の橋渡しには [MathLink.jl](https://github.com/JuliaInter
 どのノートブックも実行結果つきで保存してあるので，GitHub 上でそのまま内容を確認できます。  
 どれから読んでもかまいませんが，最初は積分編がおすすめです。
 
+## 入試問題を解く — 京都大学 2026 理系
+
+分野別のノートブックで用意した道具を使って，実際の入試問題（京都大学 2026 年度 理系数学，全 6 問）を解いたノートブックです。
+
+最初から答えを出すのではなく，**グラフをかく → 予想を立てる → Wolfram で厳密に計算する → Julia で検算する**，という順に少しずつ進めています。Wolfram と Julia を「考えるための道具」として使う例として読んでください。
+
+| 問題 | ファイル | 題材 | 進め方 |
+|---|---|---|---|
+| 第1問 | [julia_wolfram_kyoto2026_1.ipynb](julia_wolfram_kyoto2026_1.ipynb) | 微分・グラフと定数 $k$ の共有点の個数 | いくつかの $a$ でグラフをかく → 微分して増減と極小値を調べる → 両端の極限 → 共有点が 2 個になる $(a,\ k)$ を図示 |
+| 第2問 | [julia_wolfram_kyoto2026_2.ipynb](julia_wolfram_kyoto2026_2.ipynb) | 空間図形（正四面体と球面） | 座標を設定して点を媒介変数で表す → 距離の 2 乗を計算 → 最短・最長の距離から境界を調べる → `ForAll`，`Exists` で条件をそのまま解いて確認 |
+| 第3問 | [julia_wolfram_kyoto2026_3.ipynb](julia_wolfram_kyoto2026_3.ipynb) | 整数・多項式の係数（証明問題） | 小さい $n$ で展開・因数分解して規則を見つける → 二項定理で係数が $2$ で何回割り切れるかを調べる → 因数分解を使った帰納法で証明 |
+| 第4問 | [julia_wolfram_kyoto2026_4.ipynb](julia_wolfram_kyoto2026_4.ipynb) | 平面図形（正方形を含む正三角形）の最小値 | 正方形を固定し，正三角形を法線と距離で表す → 1 辺の長さを向き $\theta$ の関数にする → グラフと図で確かめて最小値を求める |
+| 第5問 | [julia_wolfram_kyoto2026_5.ipynb](julia_wolfram_kyoto2026_5.ipynb) | 積分（回転体の体積） | 共有点を求める → いくつかの $a$ で領域をかく → $x$ 軸で折り返して場合分けの境目を探す → 区間ごとに積分 → 数値積分で検算 |
+| 第6問 | [julia_wolfram_kyoto2026_6.ipynb](julia_wolfram_kyoto2026_6.ipynb) | 確率・期待値 | $P(X = n)$ を求める → $P(X = k)$ と期待値を `Sum` で計算 → すべての場合の数え上げとシミュレーションで検算 |
+
+- 各ノートブックの最初に問題文があります。
+- Wolfram や Julia で確かめているのは，小さい場合の実験や数値での検算です。第3問のような証明問題では，実験で見つけた規則をもとに，証明は文章で書いています。
+- 分野別のノートブックと同じく `wolfram_common.jl` を読み込みます。問題ごとの補助関数は，それぞれのノートブックの中で定義しています。
+
 ## 必要なもの
 
 - [Julia](https://julialang.org/)
@@ -66,7 +85,7 @@ Pkg.add(["QuadGK", "Distributions", "Primes"])
 |---|---|
 | MathLink, SpecialFunctions, Plots | すべて |
 | [PlotsGRBackendFontJaEmoji](https://github.com/ujimushi/PlotsGRBackendFontJaEmoji.jl) | すべて（グラフの凡例・軸ラベルを日本語で表示する） |
-| QuadGK | 積分 |
+| QuadGK | 積分，京都大学 2026 第5問 |
 | Distributions | 確率・統計 |
 | Primes | 整数 |
 
@@ -138,6 +157,8 @@ WFUNC["BesselJ"] = :besselj
 ## ライセンス
 
 [MIT ライセンス](LICENSE)です。授業や教材づくりに自由に使ってください。
+
+入試問題の著作権は出題した大学にあります。ノートブックでは，解説のために問題文を引用しています。
 
 ---
 
