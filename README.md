@@ -55,6 +55,9 @@ Julia で，使うパッケージを追加します。
 import Pkg
 Pkg.add(["IJulia", "MathLink", "SpecialFunctions", "Plots"])
 
+# グラフで日本語を使うためのパッケージ（GitHub から直接追加する）
+Pkg.add(url="https://github.com/ujimushi/PlotsGRBackendFontJaEmoji.jl")
+
 # ノートブックによって追加で使うもの
 Pkg.add(["QuadGK", "Distributions", "Primes"])
 ```
@@ -62,6 +65,7 @@ Pkg.add(["QuadGK", "Distributions", "Primes"])
 | パッケージ | 使うノートブック |
 |---|---|
 | MathLink, SpecialFunctions, Plots | すべて |
+| [PlotsGRBackendFontJaEmoji](https://github.com/ujimushi/PlotsGRBackendFontJaEmoji.jl) | すべて（グラフの凡例・軸ラベルを日本語で表示する） |
 | QuadGK | 積分 |
 | Distributions | 確率・統計 |
 | Primes | 整数 |
@@ -127,6 +131,7 @@ WFUNC["BesselJ"] = :besselj
 - Julia 1.13.1
 - Wolfram Engine 15.0.0
 - MathLink.jl 0.6.3
+- PlotsGRBackendFontJaEmoji.jl 0.1.0
 
 すべてのノートブックを，この環境で最初から最後まで実行して確認しています。
 
